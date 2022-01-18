@@ -1,2 +1,0 @@
-# daccs
-Full stack assignment
