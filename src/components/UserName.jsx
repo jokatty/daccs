@@ -5,9 +5,13 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import './UserName.css';
+import getUserData from '../store';
 
-export default function UserName(props) {
-  console.log(props);
+export default function UserName() {
+  // const [userName, setUserName] = useState('hey');
+  // make the backend call for username
+  getUserData();
+
   return (
     <>
       <div className="userName">
@@ -25,6 +29,7 @@ export default function UserName(props) {
             <Grid xs={12}>
               <Typography variant="h6" component="h6">
                 Justus Darley
+                UserName:
               </Typography>
             </Grid>
           </Grid>
