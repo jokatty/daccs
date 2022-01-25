@@ -6,7 +6,8 @@ import Typography from '@mui/material/Typography';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import './UserName.css';
 
-export default function UserName() {
+export default function UserName(props) {
+  console.log(props);
   return (
     <>
       <div className="userName">
