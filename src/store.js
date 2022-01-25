@@ -7,6 +7,6 @@ const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://local
 export default async function getUserData() {
   console.log('backend function is called');
   const response = await axios.get(REACT_APP_BACKEND_URL);
-  console.log(response);
-  return response;
+  console.log(response.data[0]);
+  return response.data[0];
 }
