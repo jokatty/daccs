@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
@@ -8,9 +8,13 @@ import './UserName.css';
 import getUserData from '../store';
 
 export default function UserName() {
-  // const [userName, setUserName] = useState('hey');
+  const [userName, setUserName] = useState('hey');
   // make the backend call for username
-  getUserData();
+  useEffect(async () => {
+    const storeData = await getUserData();
+    console.log(storeData);
+    setUserName(storeData.user_name);
+  }, []);
 
   return (
     <>
@@ -28,8 +32,7 @@ export default function UserName() {
             </Grid>
             <Grid xs={12}>
               <Typography variant="h6" component="h6">
-                Justus Darley
-                UserName:
+                {userName}
               </Typography>
             </Grid>
           </Grid>
