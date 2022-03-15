@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import './UserName.css';
-import getUserData from '../store';
 
-export default function UserName() {
-  const [userName, setUserName] = useState('hey');
-  // make the backend call for username
-  useEffect(async () => {
-    const storeData = await getUserData();
-    console.log(storeData);
-    setUserName(storeData.user_name);
-  }, []);
-
+export default function UserName(prop) {
+  const { userName } = prop;
   return (
     <>
       <div className="userName">
