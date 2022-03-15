@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -6,14 +6,22 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function EditProfile() {
-  const [open, setOpen] = React.useState(false);
-  // set the inital state for input field
-  const [address, setAddress] = React.useState('');
-  const [bankAccount, setBankAccount] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [phone, setPhone] = React.useState('');
+export default function EditProfile(prop) {
+  const { userDetails } = prop;
+  console.log(userDetails);
 
+  const [open, setOpen] = useState(false);
+  const [address, setAddress] = useState(userDetails.user_address);
+  const [bankAccount, setBankAccount] = useState('');
+  const [email, setEmail] = useState();
+  const [phone, setPhone] = useState();
+
+  useEffect(() => {
+    setAddress(userDetails.user_address);
+    setBankAccount(userDetails.bank_account);
+    setEmail(userDetails.email);
+    setPhone(userDetails.phone);
+  }, [userDetails]);
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -23,8 +31,7 @@ export default function EditProfile() {
   };
 
   // handle the user submit details
-  const handleSubmit = () => {
-    console.log('submitted');
+  const handleSubmit = async () => {
     handleClose();
   };
 
