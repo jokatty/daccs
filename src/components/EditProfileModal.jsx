@@ -11,7 +11,7 @@ export default function EditProfile(prop) {
   console.log(userDetails);
 
   const [open, setOpen] = useState(false);
-  const [address, setAddress] = useState(userDetails.user_address);
+  const [address, setAddress] = useState('');
   const [bankAccount, setBankAccount] = useState('');
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
