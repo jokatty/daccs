@@ -1,17 +1,9 @@
 import { Grid } from '@mui/material';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './UserDetails.css';
-import getUserData from '../store';
 
-export default function UserDetails() {
-  // set the initial state
-  const [userDetails, setUserDetails] = useState({ user_address: '', bank_account: '', email: '' });
-  useEffect(async () => {
-    const userData = await getUserData();
-    console.log(userData);
-    setUserDetails(userData);
-  }, []);
-
+export default function UserDetails(prop) {
+  const { userDetails } = prop;
   return (
     <>
       <div className="userDetailsDiv">
