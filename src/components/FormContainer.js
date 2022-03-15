@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from '@mui/material';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import UserName from './UserName';
 import UserDetails from './UserDetails';
 import EditProfile from './EditProfileModal';
+import getUserData from '../store';
 
 export default function FormConatiner() {
+  // set the initial state
+  const [userDetails, setUserDetails] = useState({ user_address: '', bank_account: '', email: '' });
+  const [userName, setUserName] = useState('');
+  useEffect(async () => {
+    const userData = await getUserData();
+    console.log(userData);
+    setUserDetails(userData);
+    setUserName(userData.user_name);
+  }, []);
   const styleForm = {
     containerStyle: {
       marginTop: '10vh',
@@ -25,8 +35,8 @@ export default function FormConatiner() {
     <Container maxWidth="sm" style={styleForm.containerStyle}>
       <Box sx={styleForm.boxStyle}>
         <Paper elevation={2}>
-          <UserName />
-          <UserDetails />
+          <UserName userName={userName} />
+          <UserDetails userDetails={userDetails} />
           <EditProfile />
         </Paper>
       </Box>
