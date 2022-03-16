@@ -5,6 +5,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import { updateUserData } from '../store';
 
 export default function EditProfile(prop) {
   const { userDetails } = prop;
@@ -13,8 +14,8 @@ export default function EditProfile(prop) {
   const [open, setOpen] = useState(false);
   const [address, setAddress] = useState('');
   const [bankAccount, setBankAccount] = useState('');
-  const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
 
   useEffect(() => {
     setAddress(userDetails.user_address);
@@ -32,6 +33,12 @@ export default function EditProfile(prop) {
 
   // handle the user submit details
   const handleSubmit = async () => {
+    const userName = userDetails.user_name;
+    const { id } = userDetails;
+    const userData = {
+      id, email, address, phone, bankAccount, userName,
+    };
+    await updateUserData(userData);
     handleClose();
   };
 
@@ -51,8 +58,8 @@ export default function EditProfile(prop) {
             type="text"
             fullWidth
             variant="standard"
-            value={address}
-            onChange={(e) => { setAddress(e.value); }}
+            value={address || ''}
+            onChange={(e) => { setAddress(e.target.value); }}
           />
           <TextField
             autoFocus
@@ -62,9 +69,10 @@ export default function EditProfile(prop) {
             type="text"
             fullWidth
             variant="standard"
-            value={bankAccount}
+            value={bankAccount || ''}
             onChange={(e) => {
-              setBankAccount(e.value);
+              console.log(e.value);
+              setBankAccount(e.target.value);
             }}
           />
           {' '}
@@ -76,9 +84,9 @@ export default function EditProfile(prop) {
             type="email"
             fullWidth
             variant="standard"
-            value={email}
+            value={email || ''}
             onChange={(e) => {
-              setEmail(e.value);
+              setEmail(e.target.value);
             }}
           />
           <TextField
@@ -89,8 +97,8 @@ export default function EditProfile(prop) {
             type="text"
             fullWidth
             variant="standard"
-            value={phone}
-            onChange={(e) => { setPhone(e.value); }}
+            value={phone || ''}
+            onChange={(e) => { setPhone(e.target.value); }}
           />
         </DialogContent>
         <DialogActions>
