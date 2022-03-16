@@ -3,7 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import './UserName.css';
 import Divider from '@mui/material/Divider';
 
 export default function UserName(prop) {
