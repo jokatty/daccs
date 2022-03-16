@@ -5,11 +5,11 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Container } from '@mui/material';
 import { updateUserData } from '../store';
 
 export default function EditProfile(prop) {
   const { userDetails } = prop;
-
   const [open, setOpen] = useState(false);
   const [address, setAddress] = useState('');
   const [bankAccount, setBankAccount] = useState('');
@@ -44,10 +44,25 @@ export default function EditProfile(prop) {
     handleClose();
   };
 
+  // style properties
+  const stylingObj = {
+    editContainer: {
+      marginTop: '3rem',
+      marginBottom: '1.5rem',
+      width: '90%',
+    },
+    editBtn: {
+      maxHeight: '30px',
+      textTransform: 'none',
+      backgroundColor: '#000080',
+      fontSize: '0.75rem',
+    },
+  };
+
   return (
-    <div>
-      <Button variant="contained" onClick={handleClickOpen} fullWidth>
-        Edit Profile
+    <Container style={stylingObj.editContainer}>
+      <Button variant="contained" onClick={handleClickOpen} fullWidth style={stylingObj.editBtn}>
+        Edit profile
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Edit your details</DialogTitle>
@@ -107,6 +122,6 @@ export default function EditProfile(prop) {
           <Button onClick={handleSubmit}>Submit </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </Container>
   );
 }
