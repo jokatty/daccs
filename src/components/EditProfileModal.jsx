@@ -9,7 +9,6 @@ import { updateUserData } from '../store';
 
 export default function EditProfile(prop) {
   const { userDetails } = prop;
-  console.log(userDetails);
 
   const [open, setOpen] = useState(false);
   const [address, setAddress] = useState('');
@@ -38,7 +37,10 @@ export default function EditProfile(prop) {
     const userData = {
       id, email, address, phone, bankAccount, userName,
     };
-    await updateUserData(userData);
+    const response = await updateUserData(userData);
+    if (response === 200) {
+      window.location.reload();
+    }
     handleClose();
   };
 
@@ -71,7 +73,6 @@ export default function EditProfile(prop) {
             variant="standard"
             value={bankAccount || ''}
             onChange={(e) => {
-              console.log(e.value);
               setBankAccount(e.target.value);
             }}
           />
