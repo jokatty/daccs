@@ -5,15 +5,15 @@ import Paper from '@mui/material/Paper';
 import UserName from './UserName';
 import UserDetails from './UserDetails';
 import EditProfile from './EditProfileModal';
-import getUserData from '../store';
+import { getUserData } from '../store';
 
 export default function FormConatiner() {
   // set the initial state
   const [userDetails, setUserDetails] = useState({ user_address: '', bank_account: '', email: '' });
   const [userName, setUserName] = useState('');
+
   useEffect(async () => {
     const userData = await getUserData();
-    console.log(userData);
     setUserDetails(userData);
     setUserName(userData.user_name);
   }, []);
@@ -37,7 +37,7 @@ export default function FormConatiner() {
         <Paper elevation={2}>
           <UserName userName={userName} />
           <UserDetails userDetails={userDetails} />
-          <EditProfile />
+          <EditProfile userDetails={userDetails} />
         </Paper>
       </Box>
     </Container>
