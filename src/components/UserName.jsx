@@ -1,41 +1,53 @@
 import React from 'react';
 import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import './UserName.css';
+import Divider from '@mui/material/Divider';
 
 export default function UserName(prop) {
   const { userName } = prop;
+  const stylingObj = {
+    container: {
+      padding: '1.5rem',
+    },
+    avatar: {
+      borderRadius: 8,
+      backgroundColor: '#C5BDDD',
+      color: '#3A125E',
+      fontSize: '.75rem',
+    },
+    sub: {
+      color: 'gray',
+      fontSize: '.65rem',
+    },
+    userName: {
+      fontSize: '.75rem',
+      color: 'black',
+      marginTop: 0,
+      paddingTop: 0,
+    },
+  };
   return (
     <>
-      <div className="userName">
-        <Stack direction="row" spacing={2}>
-          <Avatar>JD</Avatar>
-        </Stack>
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid xs={3}>
-            <p>1</p>
-          </Grid>
-          <Grid xs={6}>
-            <Grid xs={12}>
-              <Typography>Name</Typography>
+      <Grid container style={stylingObj.container}>
+        <Grid xs={2}>
+          <Avatar style={stylingObj.avatar}>JD</Avatar>
+        </Grid>
+        <Grid xs={8}>
+          <Grid container sx={{ flexDirection: 'column' }}>
+            <Grid><Typography variant="subtitle2" style={stylingObj.sub}>Name</Typography></Grid>
+            <Grid sx={{ mt: -0.5 }}>
+              <Typography variant="subtitle2" style={stylingObj.userName}>{userName}</Typography>
             </Grid>
-            <Grid xs={12}>
-              <Typography variant="h6" component="h6">
-                {userName}
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid item xs={3}>
-            <MoreHorizIcon />
           </Grid>
         </Grid>
-      </div>
-      <div>
-        <hr />
-      </div>
+        <Grid xs={2} display="flex" justifyContent="flex-end">
+          <MoreHorizIcon color="disabled" />
+        </Grid>
+      </Grid>
+      <Divider />
     </>
   );
 }
