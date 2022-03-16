@@ -1,6 +1,5 @@
 import { Grid, Divider, Typography } from '@mui/material';
 import React from 'react';
-import './UserDetails.css';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
