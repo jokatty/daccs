@@ -23,6 +23,10 @@ export default function UserDetails(prop) {
       display: 'flex',
       alignItems: 'center',
     },
+    bankAc: {
+      fontSize: '.75rem',
+      color: '#0057BA',
+    },
 
   };
   return (
@@ -45,7 +49,7 @@ export default function UserDetails(prop) {
             <Grid><Typography variant="subtitle2" style={stylingObj.fieldColor}>IBAN bank account</Typography></Grid>
           </Grid>
           <Grid>
-            <Typography variant="subtitle1" style={stylingObj.fieldValue} mt={-0.5}>{userDetails.bank_account}</Typography>
+            <Typography variant="subtitle1" style={stylingObj.bankAc} mt={-0.5}>{userDetails.bank_account}</Typography>
           </Grid>
         </Grid>
         <Grid container mt={2}>
