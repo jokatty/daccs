@@ -10,22 +10,26 @@ import { updateUserData } from '../store';
 
 export default function EditProfile(prop) {
   const { userDetails } = prop;
+  // set initial states for user data
   const [open, setOpen] = useState(false);
   const [address, setAddress] = useState('');
   const [bankAccount, setBankAccount] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
 
+  // set user details to the values we receive through props
   useEffect(() => {
     setAddress(userDetails.user_address);
     setBankAccount(userDetails.bank_account);
     setEmail(userDetails.email);
     setPhone(userDetails.phone);
   }, [userDetails]);
+
   const handleClickOpen = () => {
     setOpen(true);
   };
 
+  // callback function to cloase the modal
   const handleClose = () => {
     setOpen(false);
   };
@@ -57,6 +61,10 @@ export default function EditProfile(prop) {
       backgroundColor: '#000080',
       fontSize: '0.75rem',
     },
+    heading: {
+      fontSize: '1rem',
+      color: 'gray',
+    },
   };
 
   return (
@@ -65,7 +73,7 @@ export default function EditProfile(prop) {
         Edit profile
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Edit your details</DialogTitle>
+        <DialogTitle style={stylingObj.heading}>Edit your details</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
