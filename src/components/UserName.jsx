@@ -34,10 +34,10 @@ export default function UserName(prop) {
   return (
     <>
       <Grid container style={stylingObj.container}>
-        <Grid xs={2}>
+        <Grid xs={2} item>
           <Avatar style={stylingObj.avatar}>JD</Avatar>
         </Grid>
-        <Grid xs={8}>
+        <Grid xs={8} item>
           <Grid container sx={{ flexDirection: 'column' }}>
             <Grid><Typography variant="subtitle2" style={stylingObj.sub}>Name</Typography></Grid>
             <Grid sx={{ mt: -0.5 }}>
@@ -45,7 +45,7 @@ export default function UserName(prop) {
             </Grid>
           </Grid>
         </Grid>
-        <Grid xs={2} display="flex" justifyContent="flex-end">
+        <Grid xs={2} item display="flex" justifyContent="flex-end">
           <MoreHorizIcon color="disabled" />
         </Grid>
       </Grid>
