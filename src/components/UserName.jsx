@@ -7,6 +7,8 @@ import Divider from '@mui/material/Divider';
 
 export default function UserName(prop) {
   const { userName } = prop;
+
+  // style object
   const stylingObj = {
     container: {
       padding: '1.5rem',
@@ -28,6 +30,7 @@ export default function UserName(prop) {
       paddingTop: 0,
     },
   };
+
   return (
     <>
       <Grid container style={stylingObj.container}>
