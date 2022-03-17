@@ -7,6 +7,8 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 
 export default function UserDetails(prop) {
   const { userDetails } = prop;
+
+  // style properties
   const stylingObj = {
     container: {
       padding: '1.5rem',
