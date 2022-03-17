@@ -34,8 +34,8 @@ export default function UserDetails(prop) {
   return (
     <>
       <Grid container style={stylingObj.container}>
-        <Grid xs={1} style={stylingObj.alignment}><LocationOnOutlinedIcon fontSize="small" color="disabled" /></Grid>
-        <Grid xs={5}>
+        <Grid xs={1} item style={stylingObj.alignment}><LocationOnOutlinedIcon fontSize="small" color="disabled" /></Grid>
+        <Grid xs={5} item>
           <Grid container sx={{ flexDirection: 'column' }}>
             <Grid>
               <Typography variant="subtitle2" style={stylingObj.fieldColor}>Address</Typography>
@@ -45,8 +45,8 @@ export default function UserDetails(prop) {
             </Grid>
           </Grid>
         </Grid>
-        <Grid xs={1} style={stylingObj.alignment}><LinkOutlinedIcon fontSize="small" color="disabled" /></Grid>
-        <Grid xs={5}>
+        <Grid xs={1} item style={stylingObj.alignment}><LinkOutlinedIcon fontSize="small" color="disabled" /></Grid>
+        <Grid xs={5} item>
           <Grid container sx={{ flexDirection: 'column' }}>
             <Grid><Typography variant="subtitle2" style={stylingObj.fieldColor}>IBAN bank account</Typography></Grid>
           </Grid>
@@ -55,8 +55,8 @@ export default function UserDetails(prop) {
           </Grid>
         </Grid>
         <Grid container mt={2}>
-          <Grid xs={1} style={stylingObj.alignment}><EmailOutlinedIcon fontSize="small" color="disabled" /></Grid>
-          <Grid xs={5}>
+          <Grid xs={1} item style={stylingObj.alignment}><EmailOutlinedIcon fontSize="small" color="disabled" /></Grid>
+          <Grid xs={5} item>
             <Grid container sx={{ flexDirection: 'column' }}>
               <Grid><Typography variant="subtitle2" style={stylingObj.fieldColor}>Email address</Typography></Grid>
               <Grid>
@@ -64,8 +64,8 @@ export default function UserDetails(prop) {
               </Grid>
             </Grid>
           </Grid>
-          <Grid xs={1} style={stylingObj.alignment}><LocalPhoneOutlinedIcon fontSize="small" color="disabled" /></Grid>
-          <Grid xs={5}>
+          <Grid xs={1} item style={stylingObj.alignment}><LocalPhoneOutlinedIcon fontSize="small" color="disabled" /></Grid>
+          <Grid xs={5} item>
             <Grid container sx={{ flexDirection: 'column' }}>
               <Grid><Typography variant="subtitle2" style={stylingObj.fieldColor}>Phone number</Typography></Grid>
               <Grid><Typography variant="subtitle1" style={stylingObj.fieldValue} mt={-0.5}>{userDetails.phone}</Typography></Grid>
