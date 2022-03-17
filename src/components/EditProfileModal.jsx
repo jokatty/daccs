@@ -51,8 +51,8 @@ export default function EditProfile(prop) {
   // style properties
   const stylingObj = {
     editContainer: {
-      marginTop: '3rem',
-      marginBottom: '1.5rem',
+      marginTop: '2rem',
+      marginBottom: '2rem',
       width: '90%',
     },
     editBtn: {
