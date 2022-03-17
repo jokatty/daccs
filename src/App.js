@@ -1,16 +1,9 @@
 import React from 'react';
-import UserName from './components/UserName';
-import UserDetails from './components/UserDetails';
-import EditProfile from './components/EditProfileModal';
+import FormConatiner from './components/FormContainer';
 
 function App() {
   return (
-    <>
-      <UserName />
-      <UserDetails />
-      <EditProfile />
-    </>
+    <FormConatiner />
   );
 }
-
 export default App;
